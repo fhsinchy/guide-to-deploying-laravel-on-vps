@@ -24,7 +24,7 @@ Route::resource('questions', App\Http\Controllers\QuestionController::class)->on
 Route::resource('answers', App\Http\Controllers\AnswerController::class)->only(['store'])->names('answers');
 Route::resource('categories', App\Http\Controllers\CategoryController::class)->only(['show'])->names('categories');
 
-Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () {
+Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     Route::get('/', function () {
         return view('dashboard');
     })->name('dashboard');
